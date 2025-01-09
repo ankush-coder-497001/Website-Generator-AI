@@ -1,0 +1,254 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Game Dev Portfolio</title>
+<style>
+body {
+  font-family: 'Roboto', sans-serif;
+  margin: 0;
+  overflow-x: hidden;
+  background: linear-gradient(to bottom right, #222, #444);
+  color: #eee;
+}
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+header {
+  background: rgba(0,0,0,0.5);
+  padding: 20px 0;
+  text-align: center;
+}
+nav ul {
+  list-style: none;
+  padding: 0;
+}
+nav li {
+  display: inline;
+  margin: 0 10px;
+}
+nav a {
+  color: #eee;
+  text-decoration: none;
+  transition: 0.3s;
+}
+nav a:hover {
+  text-decoration: underline;
+  color: #ff0;
+}
+section {
+  padding: 50px 0;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+section.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+.project {
+  background: rgba(0,0,0,0.7);
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.3);
+}
+.project img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+.skill {
+  display: inline-block;
+  width: 150px;
+  height: 150px;
+  margin: 20px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.1);
+  position: relative;
+}
+.skill canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.skill span {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 1.2em;
+}
+#resume-btn {
+  background: linear-gradient(to right, #f00, #ff0);
+  color: #000;
+  padding: 15px 30px;
+  border: none;
+  border-radius: 5px;
+  font-size: 1.2em;
+  cursor: pointer;
+  transition: background 0.3s;
+  box-shadow: 0 0 10px rgba(255,255,0,0.5);
+}
+#resume-btn:hover {
+  background: linear-gradient(to right, #ff0, #f00);
+}
+#scroll-top {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  display: none;
+  background: #ff0;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+footer{
+  text-align: center;
+  padding: 20px;
+}
+
+@media (max-width: 768px) {
+  .skill {
+    width: 100px;
+    height: 100px;
+  }
+}
+</style>
+<script>
+  window.addEventListener('load', () => {
+    const sections = document.querySelectorAll('section');
+    const navLinks = document.querySelectorAll('nav a');
+    const scrollTopBtn = document.getElementById('scroll-top');
+
+    window.addEventListener('scroll', () => {
+      let current = '';
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.clientHeight;
+        if (pageYOffset >= sectionTop - sectionHeight / 3) {
+          current = section.getAttribute('id');
+        }
+      });
+      navLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === '#' + current) {
+          link.classList.add('active');
+        }
+      });
+
+      if (pageYOffset > 500) {
+        scrollTopBtn.style.display = 'block';
+      } else {
+        scrollTopBtn.style.display = 'none';
+      }
+    });
+
+    navLinks.forEach(link => {
+      link.addEventListener('click', e => {
+        e.preventDefault();
+        const targetId = link.getAttribute('href').substring(1);
+        const targetSection = document.getElementById(targetId);
+        targetSection.scrollIntoView({ behavior: 'smooth' });
+      });
+    });
+
+    scrollTopBtn.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('active');
+        } else {
+          entry.target.classList.remove('active');
+        }
+      });
+    });
+    sections.forEach(section => {
+      observer.observe(section);
+    });
+
+    function createRadialProgress(canvas, percentage, color) {
+        const ctx = canvas.getContext('2d');
+        const radius = canvas.width / 2;
+        ctx.beginPath();
+        ctx.arc(radius, radius, radius, 0, Math.PI * 2);
+        ctx.lineWidth = 10;
+        ctx.strokeStyle = '#222';
+        ctx.stroke();
+        ctx.beginPath();
+        ctx.arc(radius, radius, radius, 1.5 * Math.PI, 1.5 * Math.PI + percentage * 2 * Math.PI);
+        ctx.strokeStyle = color;
+        ctx.lineWidth = 10;
+        ctx.stroke();
+    }
+    const skills = document.querySelectorAll('.skill canvas');
+    skills.forEach((skill, index) => {
+      let percentage = 0.8;
+      let color = '#f00'
+      if (index == 1) {percentage = 0.7; color = '#0f0'}
+      if (index == 2) {percentage = 0.9; color = '#00f'}
+      createRadialProgress(skill, percentage, color);
+    });
+  });
+</script>
+</head>
+<body>
+<header>
+  <h1>Game Developer Portfolio</h1>
+  <nav>
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+<section id="about">
+  <h2>About Me</h2>
+  <p>Experienced game developer with a passion for creating immersive and engaging experiences.</p>
+  <img src="https://via.placeholder.com/800x600" alt="About Me">
+</section>
+<section id="projects">
+  <h2>Projects</h2>
+  <div class="project">
+    <img src="https://via.placeholder.com/600x400" alt="Project 1">
+    <h3>Project Title 1</h3>
+    <p>Description of Project 1</p>
+  </div>
+    <div class="project">
+    <img src="https://via.placeholder.com/600x400" alt="Project 2">
+    <h3>Project Title 2</h3>
+    <p>Description of Project 2</p>
+  </div>
+</section>
+<section id="skills">
+  <h2>Skills</h2>
+  <div class="skill"><canvas width="150" height="150"></canvas><span>C++</span></div>
+  <div class="skill"><canvas width="150" height="150"></canvas><span>Unity</span></div>
+  <div class="skill"><canvas width="150" height="150"></canvas><span>Unreal Engine</span></div>
+</section>
+<section id="contact">
+  <h2>Contact Me</h2>
+  <form>
+    <input type="text" placeholder="Name" required>
+    <input type="email" placeholder="Email" required>
+    <textarea placeholder="Message" required></textarea>
+    <button type="submit">Send</button>
+  </form>
+</section>
+<footer>
+  <p>&copy; 2023 Game Dev Portfolio</p>
+</footer>
+<button id="scroll-top">&#8593;</button>
+</body>
+</html>
+```

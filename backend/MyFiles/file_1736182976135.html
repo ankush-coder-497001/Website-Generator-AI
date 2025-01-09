@@ -1,0 +1,172 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Content Creator Portfolio</title>
+<style>
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  overflow-x: hidden;
+}
+nav {
+  background: #333;
+  color: white;
+  padding: 1rem 0;
+  position: fixed;
+  width: 100%;
+  z-index: 1000;
+}
+nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  text-align: center;
+}
+nav li {
+  display: inline;
+  margin: 0 1rem;
+}
+nav a {
+  text-decoration: none;
+  color: white;
+  transition: color 0.3s ease;
+}
+nav a:hover {
+  color: #ffcc66;
+}
+section {
+  padding: 4rem 0;
+  text-align: center;
+  min-height: 100vh;
+}
+.hero {
+  background: url('https://source.unsplash.com/1600x900/?nature,landscape') center/cover no-repeat;
+  background-size: cover;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  min-height: 100vh;
+}
+.hero h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+.portfolio {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-gap: 20px;
+}
+.portfolio-item {
+  background: white;
+  padding: 1rem;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+.portfolio-item img {
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 1rem;
+}
+.contact {
+  background: #f0f0f0;
+  padding: 4rem 0;
+}
+.social-icons a {
+  display: inline-block;
+  margin: 0 1rem;
+  font-size: 2rem;
+  transition: transform 0.3s ease;
+}
+.social-icons a:hover {
+  transform: scale(1.1);
+}
+.scroll-to-top {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #333;
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  display: none;
+  transition: opacity 0.3s ease;
+  opacity: 0;
+}
+.scroll-to-top:hover {
+  background-color: #ffcc66;
+}
+.scroll-to-top.show {
+  opacity: 1;
+  display: block;
+}
+@media (max-width: 768px) {
+  nav ul {
+    text-align: left;
+  }
+  nav li {
+    display: block;
+    margin: 0.5rem 0;
+  }
+}
+</style>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+<nav>
+  <ul>
+    <li><a href="#home">Home</a></li>
+    <li><a href="#portfolio">Portfolio</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+<section id="home" class="hero">
+  <h1>Welcome to My Portfolio</h1>
+</section>
+<section id="portfolio" class="portfolio">
+  <div class="portfolio-item"><img src="https://source.unsplash.com/300x200/?nature,photography" alt="Project 1"><p>Project 1</p></div>
+  <div class="portfolio-item"><img src="https://source.unsplash.com/300x200/?technology,coding" alt="Project 2"><p>Project 2</p></div>
+  <div class="portfolio-item"><img src="https://source.unsplash.com/300x200/?design,illustration" alt="Project 3"><p>Project 3</p></div>
+</section>
+
+<section id="contact" class="contact">
+  <h2>Contact Me</h2>
+  <div class="social-icons">
+    <a href="#"><i class="fab fa-facebook"></i></a>
+    <a href="#"><i class="fab fa-instagram"></i></a>
+    <a href="#"><i class="fab fa-twitter"></i></a>
+  </div>
+</section>
+<button class="scroll-to-top">&#8593;</button>
+<script>
+window.addEventListener('scroll', () => {
+  const scrollToTop = document.querySelector('.scroll-to-top');
+  if (window.pageYOffset > 300) {
+    scrollToTop.classList.add('show');
+  } else {
+    scrollToTop.classList.remove('show');
+  }
+});
+
+document.querySelector('.scroll-to-top').addEventListener('click', () => {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+
+document.querySelectorAll('nav a').forEach(anchor => {
+  anchor.addEventListener('click', function (e) {
+    e.preventDefault();
+    const targetId = this.getAttribute('href').substring(1);
+    const targetElement = document.getElementById(targetId);
+    targetElement.scrollIntoView({ behavior: 'smooth' });
+  });
+});
+</script>
+</body>
+</html>
+```

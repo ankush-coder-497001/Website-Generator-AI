@@ -1,0 +1,163 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Full-Stack Developer Portfolio</title>
+<style>
+body { font-family: 'Roboto', sans-serif; margin: 0; overflow-x: hidden; background: linear-gradient(135deg, #43cea2, #185a9d); color: #fff; }
+.container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+header { background: rgba(0,0,0,0.5); padding: 20px 0; text-align: center; }
+nav ul { list-style: none; padding: 0; margin: 0; display: flex; justify-content: center; }
+nav li { margin: 0 10px; }
+nav a { text-decoration: none; color: #fff; font-weight: bold; transition: 0.3s; }
+nav a:hover { color: #43cea2; text-decoration: underline; }
+.hero { background-image: url('https://source.unsplash.com/random/1920x1080/?coding'); background-size: cover; background-position: center; height: 600px; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; }
+.hero h1 { font-size: 3em; color: #fff; text-shadow: 2px 2px 4px #000; }
+.hero span { font-size: 2em; color: #43cea2; text-shadow: 2px 2px 4px #000; }
+.typewriter { overflow: hidden; border-right: .15em solid orange; white-space: nowrap; margin: 0 auto; letter-spacing: .15em; animation: typing 3.5s steps(40, end), blink-caret .75s step-end infinite; font-size: 1.5em; }
+@keyframes typing { from { width: 0 } to { width: 100% } }
+@keyframes blink-caret { 50% { border-color: transparent } }
+section { padding: 40px 0; }
+.technologies { display: flex; flex-wrap: wrap; justify-content: center; }
+.tech-icon { width: 100px; height: 100px; margin: 20px; border-radius: 50%; background-color: rgba(255,255,255,0.2); display: flex; justify-content: center; align-items: center; transition: 0.3s; }
+.tech-icon:hover { transform: scale(1.1); box-shadow: 0px 0px 10px rgba(255,255,255,0.5); }
+.tech-icon img { width: 60%; }
+.timeline { display: flex; flex-wrap: wrap; justify-content: center; }
+.timeline-item { width: 300px; margin: 20px; border: 1px solid #fff; padding: 20px; position: relative; border-radius: 8px; background-color: rgba(255,255,255,0.1); box-shadow: 0 0 20px rgba(0,0,0,0.5); transition: 0.3s; }
+.timeline-item::before { content: ""; position: absolute; top: 50%; left: -20px; border-top: 10px solid transparent; border-bottom: 10px solid transparent; border-right: 20px solid #fff; transform: translateY(-50%); }
+.timeline-item:hover { transform: scale(1.05); box-shadow: 0 0 30px rgba(0,0,0,0.7); }
+.contact-form { display: flex; flex-direction: column; }
+.contact-form input, .contact-form textarea { padding: 10px; margin-bottom: 10px; border: 1px solid #fff; background-color: rgba(255,255,255,0.2); color: #fff; }
+.contact-form button { background-color: #43cea2; color: #fff; padding: 10px; border: none; cursor: pointer; }
+.modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.5); justify-content: center; align-items: center; }
+.modal-content { background-color: #fff; padding: 20px; border-radius: 5px; }
+.scroll-to-top { position: fixed; bottom: 20px; right: 20px; display: none; background-color: #43cea2; color: #fff; padding: 10px; border-radius: 5px; cursor: pointer; transition: 0.3s; }
+.scroll-to-top:hover { background-color: #185a9d; }
+@media (max-width: 768px) { .technologies { flex-direction: column; } .timeline-item { width: 100%; } }
+</style>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+<header>
+<nav>
+<ul>
+<li><a href="#home">Home</a></li>
+<li><a href="#technologies">Technologies</a></li>
+<li><a href="#experience">Experience</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
+</nav>
+</header>
+<section id="home" class="hero">
+<h1>Full-Stack Developer</h1>
+<span class="typewriter">Crafting Digital Experiences</span>
+</section>
+<section id="technologies">
+<h2>Technologies</h2>
+<div class="technologies">
+<div class="tech-icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript"></div>
+<div class="tech-icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original-wordmark.svg" alt="React"></div>
+<div class="tech-icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" alt="Node.js"></div>
+<div class="tech-icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python"></div>
+<div class="tech-icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" alt="MongoDB"></div>
+</div>
+</section>
+<section id="experience">
+<h2>Work Experience</h2>
+<div class="timeline">
+<div class="timeline-item"><h3>Software Engineer</h3><p>Developed web applications using React, Node.js, and MongoDB.</p></div>
+<div class="timeline-item"><h3>Frontend Developer</h3><p>Built responsive and user-friendly interfaces.</p></div>
+</div>
+</section>
+<section id="contact">
+<h2>Contact Me</h2>
+<form class="contact-form" onsubmit="return submitForm(event)">
+<input type="text" id="name" placeholder="Name" required>
+<input type="email" id="email" placeholder="Email" required>
+<textarea id="message" placeholder="Message" required></textarea>
+<button type="submit">Send</button>
+</form>
+<div id="myModal" class="modal">
+<div class="modal-content">
+<p>Thank you for your message!</p>
+<button onclick="closeModal()">Close</button>
+</div>
+</div>
+</section>
+<button class="scroll-to-top" onclick="scrollToTop()"><i class="fas fa-chevron-up"></i></button>
+
+<script>
+const navLinks = document.querySelectorAll('nav a');
+navLinks.forEach(link => {
+link.addEventListener('click', (e) => {
+e.preventDefault();
+const targetId = link.getAttribute('href').substring(1);
+document.getElementById(targetId).scrollIntoView({ behavior: 'smooth' });
+});
+});
+
+let scrollToTopBtn = document.querySelector(".scroll-to-top");
+window.onscroll = function() {
+scrollFunction()
+};
+function scrollFunction() {
+if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+scrollToTopBtn.style.display = "block";
+} else {
+scrollToTopBtn.style.display = "none";
+}
+}
+function scrollToTop() {
+document.body.scrollTop = 0;
+document.documentElement.scrollTop = 0;
+}
+
+function submitForm(event) {
+event.preventDefault();
+const name = document.getElementById('name').value;
+const email = document.getElementById('email').value;
+const message = document.getElementById('message').value;
+// Add your form submission logic here (e.g., fetch API call)
+openModal();
+return false;
+}
+
+function openModal() {
+document.getElementById("myModal").style.display = "flex";
+}
+
+function closeModal() {
+document.getElementById("myModal").style.display = "none";
+}
+
+const techIcons = document.querySelectorAll('.tech-icon');
+techIcons.forEach(icon => {
+icon.addEventListener('mouseover', () => {
+icon.style.transform = 'scale(1.1)';
+icon.style.boxShadow = '0px 0px 10px rgba(255,255,255,0.5)';
+});
+icon.addEventListener('mouseout', () => {
+icon.style.transform = 'scale(1)';
+icon.style.boxShadow = 'none';
+});
+});
+
+const timelineItems = document.querySelectorAll('.timeline-item');
+timelineItems.forEach(item => {
+item.addEventListener('mouseover', () => {
+item.style.transform = 'scale(1.05)';
+item.style.boxShadow = '0 0 30px rgba(0,0,0,0.7)';
+});
+item.addEventListener('mouseout', () => {
+item.style.transform = 'scale(1)';
+item.style.boxShadow = '0 0 20px rgba(0,0,0,0.5)';
+});
+});
+
+
+</script>
+</body>
+</html>
+```

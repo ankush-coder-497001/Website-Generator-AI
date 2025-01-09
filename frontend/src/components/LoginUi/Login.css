@@ -1,0 +1,140 @@
+.login-div{
+  margin: 0;
+  font-family: Arial, sans-serif;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(to bottom, #111827, #4c1d95, #5b21b6);
+  color: white;
+  position: relative;
+  overflow: hidden;
+}
+
+
+
+.S9gUrf-YoZ4jf, .S9gUrf-YoZ4jf * {
+  border: none;
+  margin: 0;
+  padding: 0;
+  background: black;
+  color: white;
+}
+
+.container {
+  width: 100%;
+  max-width: 24rem;
+  text-align: center;
+}
+
+.h1-login{
+  font-size: 2.5rem;
+  font-weight: bold;
+  letter-spacing: -0.025em;
+  animation: pulse 2s infinite;
+  margin-bottom: 2rem;
+}
+
+.login-container {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 1rem;
+  padding: 2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.login-container::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(45deg, #ff00ff, #00ffff);
+  z-index: -1;
+  filter: blur(10px);
+  opacity: 0.5;
+  animation: glow 3s infinite alternate;
+}
+
+.google-btn {
+  background: linear-gradient(to right, #4285F4, #34A853, #FBBC05, #EA4335);
+  border: none;
+  border-radius: 0.5rem;
+  color: white;
+  font-weight: 600;
+  font-size: 1.125rem;
+  padding: 0.75rem 1.5rem;
+  cursor: pointer;
+  transition: all 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  width: 100%;
+}
+
+.google-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.google-btn:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px #7c3aed;
+}
+
+.credit {
+  position: absolute;
+  bottom: 1rem;
+  font-size: 0.875rem;
+  color: #9ca3af;
+  animation: bounce 2s infinite;
+}
+
+.star {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background-color: white;
+  border-radius: 50%;
+}
+
+.star:nth-child(1) {
+  top: 25%;
+  left: 25%;
+  animation: twinkle 4s infinite;
+}
+
+.star:nth-child(2) {
+  top: 75%;
+  left: 50%;
+  animation: twinkle 4s infinite 1s;
+}
+
+.star:nth-child(3) {
+  top: 50%;
+  left: 75%;
+  animation: twinkle 4s infinite 2s;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes twinkle {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.2; }
+}
+
+@keyframes glow {
+  0% { opacity: 0.5; }
+  100% { opacity: 0.7; }
+}

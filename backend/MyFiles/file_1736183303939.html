@@ -1,0 +1,231 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MERN Stack Developer Portfolio</title>
+<style>
+body {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  overflow-x: hidden;
+}
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(0,0,0,0.7);
+  z-index: 1000;
+  transition: background-color 0.3s ease;
+}
+nav.sticky {
+  background-color: #000;
+}
+nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 60px;
+}
+nav li {
+  margin: 0 20px;
+}
+nav a {
+  text-decoration: none;
+  color: white;
+  font-weight: 500;
+  position: relative;
+}
+nav a::before {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: #ffcc00;
+  transition: width 0.3s ease;
+}
+nav a:hover::before {
+  width: 100%;
+}
+nav a.active::before {
+  width: 100%;
+}
+section {
+  padding: 100px 0;
+  text-align: center;
+}
+.hero {
+  background: linear-gradient(to bottom, #2980b9, #6dd5fa);
+  color: white;
+}
+.hero img {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  margin-bottom: 20px;
+}
+.projects {
+  background-color: #f4f4f4;
+}
+.project-card {
+  display: inline-block;
+  width: 300px;
+  margin: 20px;
+  padding: 20px;
+  background-color: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.project-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+.skills {
+  background-color: #e74c3c;
+  color: white;
+}
+.skill-bar {
+  width: 80%;
+  height: 20px;
+  background-color: #fff;
+  margin: 10px auto;
+  border-radius: 5px;
+  overflow: hidden;
+}
+.skill-bar-fill {
+  height: 100%;
+  background-color: #ffcc00;
+  width: 0;
+  transition: width 0.5s ease;
+}
+.contact {
+  background: linear-gradient(to bottom, #3498db, #2980b9);
+  color: white;
+}
+.contact form {
+  width: 50%;
+  margin: 20px auto;
+}
+.scroll-to-top {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  display: none;
+  background-color: #ffcc00;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+}
+.scroll-to-top.show {
+  opacity: 1;
+  display: block;
+}
+@media (max-width: 768px) {
+  nav ul {
+    flex-direction: column;
+  }
+  nav li {
+    margin: 10px 0;
+  }
+  .project-card {
+    width: 90%;
+    margin: 10px auto;
+  }
+  .contact form {
+    width: 90%;
+  }
+}
+</style>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+<nav>
+  <ul>
+    <li><a href="#home" class="active">Home</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<section id="home" class="hero">
+  <img src="https://via.placeholder.com/200" alt="Developer Photo">
+  <h1>John Doe</h1>
+  <h2>MERN Stack Developer</h2>
+  <p>Crafting innovative web solutions.</p>
+</section>
+
+<section id="about">
+  <h2>About Me</h2>
+  <p>Experienced MERN stack developer with a passion for creating user-friendly and visually stunning web applications.</p>
+</section>
+
+<section id="projects" class="projects">
+  <h2>Projects</h2>
+  <div class="project-card">
+    <h3>Project 1</h3>
+    <img src="https://via.placeholder.com/300" alt="Project 1">
+    <p>Description of Project 1</p>
+  </div>
+  <div class="project-card">
+    <h3>Project 2</h3>
+    <img src="https://via.placeholder.com/300" alt="Project 2">
+    <p>Description of Project 2</p>
+  </div>
+</section>
+
+<section id="skills" class="skills">
+  <h2>Skills</h2>
+  <div class="skill-bar">
+    <div class="skill-bar-fill" style="width: 90%;"></div>
+  </div>
+  <div class="skill-bar">
+    <div class="skill-bar-fill" style="width: 80%;"></div>
+  </div>
+</section>
+
+<section id="contact" class="contact">
+  <h2>Contact</h2>
+  <form>
+    <input type="text" placeholder="Name">
+    <input type="email" placeholder="Email">
+    <textarea placeholder="Message"></textarea>
+    <button type="submit">Send</button>
+  </form>
+</section>
+
+<button class="scroll-to-top" onclick="scrollToTop()"><i class="fas fa-chevron-up"></i></button>
+
+<script>
+window.addEventListener('scroll', function() {
+  const nav = document.querySelector('nav');
+  const scrollToTop = document.querySelector('.scroll-to-top');
+  if (window.pageYOffset > 100) {
+    nav.classList.add('sticky');
+    scrollToTop.classList.add('show');
+  } else {
+    nav.classList.remove('sticky');
+    scrollToTop.classList.remove('show');
+  }
+});
+function scrollToTop() {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+const skills = document.querySelectorAll('.skill-bar-fill');
+skills.forEach((skill) => {
+  skill.style.width = skill.parentElement.getAttribute('data-width') + '%';
+});
+</script>
+</body>
+</html>
+```
