@@ -1,9 +1,11 @@
-# Website-Generator-AI
+# SiteSmith AI
 
 **Crafting Websites, Powered by AI**  
 SiteSmith AI is an intelligent platform that allows users to generate fully-functional websites with minimal effort. By leveraging the power of AI, SiteSmith AI simplifies the web development process, enabling anyone to create professional and responsive websites in minutes.
 
 ---
+
+## Live Demo (Generate-Code-Ai)[https://generate-website-ai.netlify.app/]
 
 ## Features
 
