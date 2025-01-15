@@ -55,7 +55,7 @@ const Login = ()=>{
         <div class="login-container">
             <button class="google-btn" >
               
-                <GoogleOAuthProvider clientId="739612264747-qfoeemqa0d48fvau2gfi7mgfi8q1npog.apps.googleusercontent.com" >
+                <GoogleOAuthProvider clientId="739612264747-m7j6atlf4sc58rg8v4ahu11fm69jv0ub.apps.googleusercontent.com" >
                 <GoogleLogin onSuccess={HanldeOnLogin} onError={HandleOnError} />
                 </GoogleOAuthProvider>
             </button>
@@ -67,7 +67,6 @@ const Login = ()=>{
     <div class="star"></div>
     <div class="star"></div>
     <div class="star"></div>
-
     <div class="stars"></div>
  
 </div>
