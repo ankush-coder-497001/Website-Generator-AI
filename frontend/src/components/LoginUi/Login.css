@@ -138,3 +138,137 @@
   0% { opacity: 0.5; }
   100% { opacity: 0.7; }
 }
+
+
+
+body {
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+  background: linear-gradient(to bottom, #0f0c29, #302b63, #24243e);
+  color: white;
+  min-height: 100vh;
+}
+
+.auth-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.auth-form {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  padding: 40px;
+  width: 100%;
+  max-width: 400px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 0 20px rgba(79, 172, 254, 0.5);
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 24px;
+  animation: glow 2s ease-in-out infinite alternate;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  font-size: 16px;
+  transition: all 0.3s ease;
+}
+
+input:focus {
+  outline: none;
+  background: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 0 10px rgba(79, 172, 254, 0.5);
+}
+
+.submit-btn {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  background: linear-gradient(45deg, #4facfe, #00f2fe);
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.submit-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(79, 172, 254, 0.4);
+}
+
+.auth-link {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.auth-link a {
+  color: #4facfe;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.auth-link a:hover {
+  text-shadow: 0 0 10px rgba(79, 172, 254, 0.7);
+}
+
+.profile-pic-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.profile-pic {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.profile-pic:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.profile-pic img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.profile-pic span {
+  font-size: 40px;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+@keyframes glow {
+  from {
+    text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #4facfe, 0 0 20px #4facfe;
+  }
+  to {
+    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #4facfe, 0 0 40px #4facfe;
+  }
+}

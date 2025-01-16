@@ -9,11 +9,13 @@ import 'react-router-dom'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import {Toaster} from 'react-hot-toast'
 import CopyUrl from './components/PreviewUi/WebUrl.jsx'
+import Register from './components/LoginUi/Register.jsx'
 function App() {
 const Route = createBrowserRouter([
   {path:'/mainpage',element:<InputUI></InputUI>},
   {path:'/preview',element:<Preview/>},
   {path:'/',element:<Login/>},
+  {path:'/register', element:<Register/>},
   {path:'/loader/:Condition' ,element:<Loader/>},
   {path:'/CopyUrl/:Url',element:<CopyUrl/>}
 ])

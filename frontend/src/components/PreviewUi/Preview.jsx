@@ -27,7 +27,6 @@ const Preview = ()=>{
           navigate('/preview')
           setFileName(data.Htmlfile);
           setFileCode(data.fileCode);
-          console.log(data)
         })
         .catch((err)=>{
           navigate('/mainpage')

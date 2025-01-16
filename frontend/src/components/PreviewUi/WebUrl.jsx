@@ -3,7 +3,6 @@ import { Link, useParams } from "react-router-dom";
 
 const CopyUrl = ()=>{
   const {Url} = useParams();
-  console.log(Url)
 
   const HandleOnCopy = ()=>{
     navigator.clipboard.writeText(Url)

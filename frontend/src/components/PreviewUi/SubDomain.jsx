@@ -12,7 +12,6 @@ const HandleOnDeploye = ()=>{
   navigate("/loader/deploying")
   const customSubDomain = Domainref.current.value;
   DeployOnNetlify({filename:FileName,customSubDomain}).then((res)=>{
-    console.log(res);
     navigate(`/CopyUrl/${res}`)
   }).catch((err)=>{
     navigate("/preview")
