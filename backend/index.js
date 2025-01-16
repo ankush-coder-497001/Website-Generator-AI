@@ -10,7 +10,7 @@ dotenv.config();
 //middlewares
 app.use(express.json());
 app.use(cors({
-  origin: 'https://generate-website-ai.netlify.app/',
+  origin: '*',
 }))
 
 
