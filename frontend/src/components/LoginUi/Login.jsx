@@ -12,6 +12,17 @@ import toast from 'react-hot-toast'
     const {setLoginUser} = useContext(Context);
     const navigate = useNavigate()
 
+
+    useEffect(()=>{
+      const data = JSON.parse(localStorage.getItem("BuildYourOwn"));
+      if(data){
+          setLoginUser(data)
+          navigate('/mainpage');
+      }
+  },[])
+
+
+
   const handleLogin = (e) => {
     e.preventDefault();
     LoginUser({email,password}).then((res)=>{
